@@ -6,6 +6,8 @@
 ;; Load other config files such as keybindings
 (load! "+bindings.el")                                   ; Load my custom key bindings bindings
 (load! "+org.el")                                        ; Load my custom org settings
+(load! "+custom.el")                                     ; Custom theme stuff
+(load! "+secret.el")                                     ; Secrets, shh...
 
 ;; These don't follow the typical file convention
 (projectile-add-known-project "~/Writings")              ; My LaTeX Writings
@@ -16,10 +18,12 @@
       '( "~/Code/crystal"                                ; All Crystal Projects
          "~/Code/_sites"                                 ; All SSG Sites
          "~/Code/C"                                      ; All C Projects
+         "~/Code/clisp"                                  ; All Common Lisp Projects
+         "~/Code/cloj"                                   ; All Clojure Projects
          "~/Code/ruby"                                   ; All Ruby and Rails Projects
          "~/Code/js"                                     ; All  Projects
-         "~/Code/clisp"                                  ; All Coomon Lisp Projects
          "~/Code/tex"                                    ; All TeX/LaTeX Projects
+         "~/Code/misc"                                   ; Misc. Projects such as snippets and small tests
          "~/Code/shell")                                 ; All shell scripts
       projectile-sort-order 'recentf                     ; Sort projects by recently opened and worked on
       doom-font (font-spec :family "monospace" :size 11) ; How I like my fonts, pretty universal for all screen types
@@ -42,13 +46,16 @@
     (call-interactively #'+calendar/open-calendar)))
 
 ;; GNU TRAMP Config
-(setq tramp-default-method "ssh")  ; Default to SSH, that's what I primarily use
-(setq tramp-terminal-type "tramp") ; Let other terminal know what client I'm connecting with (might need to configure server)
-(setq tramp-auto-save-directory "/home/materialfuture/.tramp/")
-(setq tramp-chunksize 2000)
+(setq tramp-default-method "ssh"  ; Default to SSH, that's what I primarily use
+      tramp-terminal-type "tramp" ; Let other terminal know what client I'm connecting with (might need to configure server)
+      tramp-auto-save-directory "/home/materialfuture/.tramp/"
+      tramp-chunksize 2000)
 
-;; Activate Packages defined in packages.el
-(use-package! rtags)                                     ; For C stuff and clang
+;;; Activate Packages defined in packages.el
+;; Rtags support, for gcc and c projects mostly
+(use-package! rtags)
+
+;; Doom themes, so I can have my nice themes :)
 (use-package doom-themes
   :config
   ;; Global settings (defaults)
