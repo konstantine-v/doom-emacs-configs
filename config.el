@@ -6,8 +6,7 @@
 ;; Load other config files such as keybindings
 (load! "+bindings.el")                                   ; Load my custom key bindings bindings
 (load! "+org.el")                                        ; Load my custom org settings
-(load! "+custom.el")                                     ; Custom theme stuff
-(load! "+secret.el")                                     ; Secrets, shh...
+(load! "custom.el")                                     ; Custom theme stuff
 
 ;; These don't follow the typical file convention
 (projectile-add-known-project "~/Writings")              ; My LaTeX Writings
