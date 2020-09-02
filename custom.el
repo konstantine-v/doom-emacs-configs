@@ -6,22 +6,20 @@
  '(ansi-color-names-vector
    ["#21242b" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
  '(custom-safe-themes
-   (quote
-    ("82360e5f96244ce8cc6e765eeebe7788c2c5f3aeb96c1a765629c5c7937c0b5b" default)))
- '(display-battery-mode t)
- '(display-time-day-and-date t)
- '(display-time-mode t)
+   '("82360e5f96244ce8cc6e765eeebe7788c2c5f3aeb96c1a765629c5c7937c0b5b" default))
+ '(display-battery-mode nil)
+ '(display-time-day-and-date nil)
+ '(display-time-mode nil)
  '(fci-rule-color "#5B6268")
  '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#3f444a"))
  '(objed-cursor-color "#ff6c6b")
- '(package-selected-packages (quote (circe doom-themes)))
+ '(package-selected-packages '(rg org-roam circe doom-themes))
  '(pdf-view-midnight-colors (cons "#bbc2cf" "#282c34"))
+ '(persp-auto-resume-time -1)
  '(rustic-ansi-faces
    ["#282c34" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
- '(smtpmail-smtp-server "mail.andrasmedia.org" t)
- '(smtpmail-smtp-service 587 t)
  '(vc-annotate-background "#282c34")
  '(vc-annotate-color-map
    (list
@@ -49,5 +47,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:background "#232830")))))
 (put 'customize-group 'disabled nil)
