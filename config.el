@@ -6,11 +6,14 @@
 ;; Load other config files such as keybindings
 (load! "+bindings.el")                                   ; Load my custom key bindings bindings
 (load! "+org.el")                                        ; Load my custom org settings
-(load! "custom.el")                                     ; Custom theme stuff
+(load! "+irc.el")                                        ; Load my irc settings for Circe settings
+(load! "+rss.el")                                        ; Load my RSS Feeds settings
+(load! "custom.el")                                      ; Custom theme stuff
+(load! "secret.el")                                      ; Secret stuff not to be commited
 
 ;; These don't follow the typical file convention
-(projectile-add-known-project "~/Writings")              ; My LaTeX Writings
-(projectile-add-known-project "~/.notes")                ; My Org and Markdown Notes
+(projectile-add-known-project "~/.local/writings")       ; My LaTeX Writings
+(projectile-add-known-project "~/.local/notes")          ; My Org and Markdown Notes
 
 ;; Settings for basic Doom Emacs things
 (setq projectile-project-search-path                     ; All the code related stuff that I work on
@@ -20,46 +23,36 @@
          "~/Code/clisp"                                  ; All Common Lisp Projects
          "~/Code/cloj"                                   ; All Clojure Projects
          "~/Code/ruby"                                   ; All Ruby and Rails Projects
+         "~/Code/php"                                    ; All PHP/Laravel Projects
          "~/Code/js"                                     ; All  Projects
          "~/Code/tex"                                    ; All TeX/LaTeX Projects
          "~/Code/misc"                                   ; Misc. Projects such as snippets and small tests
          "~/Code/shell")                                 ; All shell scripts
       projectile-sort-order 'recentf                     ; Sort projects by recently opened and worked on
-      doom-font (font-spec :family "monospace" :size 11) ; How I like my fonts, pretty universal for all screen types
+      doom-font (font-spec :family "ProggyCleanTTSZBP" :size 16) ; Proggy font ftw, pretty universal for all screen types
       display-line-numbers-type t                        ; I like seeing line numbers, what can I say?
-      org-directory "~/.notes/org/")                     ; Org Directory, in the .notes dir where I like all my notes
+      org-directory "~/.local/notes/org/")                     ; Org Directory, in the .notes dir where I like all my notes
 
-;; For emacs calendar mode
-(defun my-open-calendar ()
-  (interactive)
-  (cfw:open-calendar-buffer
-   :contents-sources
-   (list
-    ;; (cfw:howm-create-source "Blue")  ; howm source
-    ;; (cfw:cal-create-source "Orange") ; ical sources
-    (cfw:org-create-source "Purple"))))  ; orgmode source
-;;;###autoload
-(defun cfw:open-org-calendar-with-cal1 ()
-  (interactive)
-  (let ((org-agenda-files '("/home/materialfuture/.notes/org/" "/home/materialfuture/Documents/Personal/")))
-    (call-interactively #'+calendar/open-calendar)))
+;; Aspell/ispell stuff to fix errors for some
+(setq ispell-program-name "aspell"
+      ispell-dictionary "english")
 
 ;; GNU TRAMP Config
-(setq tramp-default-method "ssh"  ; Default to SSH, that's what I primarily use
-      tramp-terminal-type "tramp" ; Let other terminal know what client I'm connecting with (might need to configure server)
-      tramp-auto-save-directory "/home/materialfuture/.tramp/"
+(setq tramp-default-method "ssh"                         ; Default to SSH, that's what I primarily use
+      tramp-terminal-type "tramp"                        ; Let other terminal know what client I'm connecting with (might need to configure server)
+      tramp-auto-save-directory "~/.tramp/"
       tramp-chunksize 2000)
 
 ;;; Activate Packages defined in packages.el
-;; Rtags support, for gcc and c projects mostly
+;; Rtags support, for gcc and c projects mostly I believe
 (use-package! rtags)
 
 ;; Doom themes, so I can have my nice themes :)
 (use-package doom-themes
   :config
   ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (setq doom-themes-enable-bold t                        ; if nil, bold is universally disabled
+        doom-themes-enable-italic t)                     ; if nil, italics is universally disabled
   (load-theme 'doom-spacegrey t)
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
@@ -71,7 +64,7 @@
 ;;
 ;; + `doom-font'
 ;; + `doom-variable-pitch-font'
-;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
+;; + `doom-big-font' -- used for `doom-big-font-mode'    ; use this for
 ;;   presentations or streaming.
 
 ;; Here are some additional functions/macros that could help you configure Doom:
