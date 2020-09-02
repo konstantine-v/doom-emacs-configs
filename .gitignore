@@ -5,4 +5,6 @@ tmp/
 +gnus.el
 +rss.el
 +irc.el
-+secret.el
+secret.el
+zola.el
+custom.el

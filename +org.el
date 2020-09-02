@@ -1,5 +1,36 @@
 ;;; ~/.doom.d/org.el -*- lexical-binding: t; -*-
 
+;; Org-Roam
+(use-package org-roam
+      :ensure t
+      :hook
+      (after-init . org-roam-mode)
+      :custom
+      (org-roam-directory "~/.local/notes/org/")
+      :bind (:map org-roam-mode-map
+              (("C-c n l" . org-roam)
+               ("C-c n f" . org-roam-find-file)
+               ("C-c n g" . org-roam-graph-show))
+              :map org-mode-map
+              (("C-c n i" . org-roam-insert))
+              (("C-c n I" . org-roam-insert-immediate))))
+
+;; Org Calendar Mode
+(defun my-open-calendar ()
+  (interactive)
+  (cfw:open-calendar-buffer
+   :contents-sources
+   (list
+    ;; (cfw:howm-create-source "Blue")  ; howm source
+    ;; (cfw:cal-create-source "Orange") ; ical sources
+    (cfw:org-create-source "Purple"))))  ; orgmode source
+;;;###autoload
+(defun cfw:open-org-calendar-with-cal1 ()
+  (interactive)
+  (let ((org-agenda-files '("~/.local/notes/org/" "~/Documents/Personal/")))
+    (call-interactively #'+calendar/open-calendar)))
+
+;; Latex stuff
 (unless (boundp 'org-latex-classes)
   (setq org-latex-classes nil))
 
