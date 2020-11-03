@@ -16,21 +16,23 @@
 
 ;; Settings for basic Doom Emacs things
 (setq projectile-project-search-path                     ; All the code related stuff that I work on
-      '( "~/Code/C"                                      ; All C Projects
-         "~/Code/clisp"                                  ; All Common Lisp Projects
-         "~/Code/cloj"                                   ; All Clojure Projects
-         "~/Code/crystal"                                ; All Crystal Projects
-         "~/Code/haskell"                                ; All Haskell Projects
-         "~/Code/js"                                     ; All Javascript Projects
-         "~/Code/misc"                                   ; Misc. Projects such as snippets and small tests
-         "~/Code/php"                                    ; All PHP Projects
-         "~/Code/ruby"                                   ; All Ruby and Rails Projects
-         "~/Code/shell"                                  ; All shell scripts
-         "~/Code/tex"                                    ; All TeX/LaTeX Projects
-         "~/Code/_sites" )                               ; All SSG Sites
+      '( "~/Code/asm/"                                   ; All Assembly Projects
+         "~/Code/C/"                                     ; All C Projects
+         "~/Code/clisp/"                                 ; All Common Lisp Projects
+         "~/Code/cloj/"                                  ; All Clojure Projects
+         "~/Code/crystal/"                               ; All Crystal Projects
+         "~/Code/haskell/"                               ; All Haskell Projects
+         "~/Code/js/"                                    ; All Javascript Projects
+         "~/Code/misc/"                                  ; Misc. Projects such as snippets and small tests
+         "~/Code/php/"                                   ; All PHP Projects
+         "~/Code/ruby/"                                  ; All Ruby and Rails Projects
+         "~/Code/shell/"                                 ; All shell scripts
+         "~/Code/tex/"                                   ; All TeX/LaTeX Projects
+         "~/Code/_sites/" )                              ; All SSG Sites
       projectile-sort-order 'recentf                     ; Sort projects by recently opened and worked on
-      doom-font (font-spec :family "ProggyCleanTTSZBP"   ; Proggy font, pretty universal for all screen types
-                           :size 16)
+      doom-font (font-spec                               ; Customizing Doom Emacs' Fonts
+                 :family "ProggyCleanTTSZBP"             ; Proggy font, pretty universal for all screen types
+                 :size 16)                               ; Font-Size
       display-line-numbers-type t                        ; I like seeing line numbers, what can I say?
       org-directory "~/.local/notes/org/")               ; Org Directory, in the .notes dir where I like all my notes
 
@@ -41,8 +43,8 @@
 ;; GNU TRAMP Config
 (setq tramp-default-method "ssh"                         ; Default to SSH, that's what I primarily use
       tramp-terminal-type "tramp"                        ; Let other terminal know what client I'm connecting with (might need to configure server)
-      tramp-auto-save-directory "~/.tramp/"
-      tramp-chunksize 2000)
+      tramp-auto-save-directory "~/.cache/tramp/"        ; Send Tramp info into XDG Cache directory on machine
+      tramp-chunksize 2000)                              ; Resonable Chunk size for speed and disk space in mind
 
 ;;; Activate Packages defined in packages.el
 (use-package! rtags)                                     ; Rtags support, for gcc and c projects mostly I believe
