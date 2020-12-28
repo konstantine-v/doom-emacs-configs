@@ -33,7 +33,6 @@
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        modeline          ; snazzy, Atom-inspired modeline, plus API
        nav-flash         ; blink the current line after jumping
-       neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
        (popup
         +all
@@ -47,6 +46,7 @@
        ;;fill-column       ; a `fill-column' indicator
        ;;hydra
        ;;indent-guides     ; highlighted indent columns
+       ;; neotree           ; a project drawer, like NERDTree for vim
        ;;pretty-code       ; ligatures or substitute text with pretty symbols
        ;;tabs              ; an tab bar for Emacs
        ;;treemacs          ; a project drawer, like neotree but cooler
@@ -113,7 +113,7 @@
 
        :lang
        ;;agda              ; types of types of types of types...
-       ;;assembly          ; assembly for fun or debugging
+       assembly            ; assembly for fun or debugging
        ;;cc                ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
        common-lisp         ; if you've seen one lisp, you've seen them all
@@ -131,29 +131,35 @@
        ;;fsharp            ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;go                ; the hipster dialect
-       ;;(haskell +dante)  ; a language that's lazier than I am
+       (haskell            ; a language that's lazier than I am
+        +dante)
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
        ;;(javascript +lsp) ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
-       (latex +fold +lsp)  ; writing papers in Emacs has never been so fun
+       (latex              ; writing papers in Emacs has never been so fun
+        +fold
+        +lsp)
        ;;lean
        ;;factor
        ;;ledger            ; an accounting system in Emacs
        ;;lua               ; one-based indices? one-based indices
-       (markdown +grip)    ; writing docs for people to ignore
+       markdown            ; writing docs for people to ignore
+       ;; (markdown +grip) ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org
         +dragndrop
         +gnuplot
+        +roam
         +pandoc
+        +pretty
         +present)          ; organize your plain life in plain text
        ;;perl              ; write code no one else can comprehend
-       ;;(php +lsp)        ; perl's insecure younger brother
+       (php +lsp)          ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
        ;;python            ; beautiful is better than ugly
@@ -180,8 +186,8 @@
 
        :app
        calendar
-       ;;(rss +org)        ; emacs as an RSS reader
-       ;;irc               ; how neckbeards socialize
+       rss                 ; emacs as an RSS reader
+       ;; irc               ; how neckbeards socialize
        ;;twitter           ; twitter client https://twitter.com/vnought
 
        :config
