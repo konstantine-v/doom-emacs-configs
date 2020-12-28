@@ -1,51 +1,46 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; $DOOMDIR/packages.el
 
-;; To install a package with Doom you must declare them here, run 'doom sync' on
-;; the command line, then restart Emacs for the changes to take effect.
-;; Alternatively, use M-x doom/reload.
+;; MELPA Packages Used
+;; Package specific Configurations included below
 
+(package! doom-themes)
+(package! rtags)    ; Rtags support, for gcc and c projects mostly I believe
+(package! org-roam) ; My favorite way to organize org notes
+(package! circe)    ; The best IRC package
+(package! theme-magic) ; Change system theme to whatever emacs theme is, works best with tiling wms
+(package! webpaste)
+(package! ansible)
+(package! elfeed)
 
-;; My MELPA Packages ;)
-;; (package! org-journal)
-(package! rtags)
+(package! elpher)
+(package! csv-mode)
+(package! tracking)
+(package! rg)
+(package! org-roam)
+(package! markdown-mode)
+(package! cl-libify)
 
-;; Doom's packages are pinned to a specific commit and updated from release to
-;; release. The `unpin!' macro allows you to unpin single packages...
-;(unpin! pinned-package)
-;; ...or multiple packages
-;(unpin! pinned-package another-pinned-package)
-;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
-;(unpin! t)
+;; Package Configs
+;; Doom Theme configs
+(use-package doom-themes                                 ; Doom themes, so I can have my nice themes :)
+  :config
+  (setq doom-themes-enable-bold t                        ; if nil, bold is universally disabled
+        doom-themes-enable-italic t)                     ; if nil, italics is universally disabled
+  (load-theme 'doom-outrun-electric t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-neotree-config)
+  (doom-themes-treemacs-config)
+  (doom-themes-org-config))
 
-
-;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
-;(package! some-package)
-
-;; To install a package directly from a particular repo, you'll need to specify
-;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:
-;; https://github.com/raxod502/straight.el#the-recipe-format
-;(package! another-package
-;  :recipe (:host github :repo "username/repo"))
-
-;; If the package you are trying to install does not contain a PACKAGENAME.el
-;; file, or is located in a subdirectory of the repo, you'll need to specify
-;; `:files' in the `:recipe':
-;(package! this-package
-;  :recipe (:host github :repo "username/repo"
-;           :files ("some-file.el" "src/lisp/*.el")))
-
-;; If you'd like to disable a package included with Doom, for whatever reason,
-;; you can do so here with the `:disable' property:
-;(package! builtin-package :disable t)
-
-;; You can override the recipe of a built in package without having to specify
-;; all the properties for `:recipe'. These will inherit the rest of its recipe
-;; from Doom or MELPA/ELPA/Emacsmirror:
-;(package! builtin-package :recipe (:nonrecursive t))
-;(package! builtin-package-2 :recipe (:repo "myfork/package"))
-
-;; Specify a `:branch' to install a package from a particular branch or tag.
-;; This is required for some packages whose default branch isn't 'master' (which
-;; our package manager can't deal with; see raxod502/straight.el#279)
-;(package! builtin-package :recipe (:branch "develop"))
+;; Webpaste Configs
+(use-package webpaste
+  :config
+  (progn
+    (setq webpaste-provider-priority
+          '("ix.io"
+            "dpaste.org"))
+    (setq webpaste-paste-raw-text t)            ;Only paste raw pastes
+    (setq webpaste-paste-confirmation t)        ;Require confirmation before doing paste
+    (setq webpaste-max-retries 5)               ;Max out at 5 retries
+  ))

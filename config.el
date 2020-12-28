@@ -15,20 +15,20 @@
 (projectile-add-known-project "~/.local/notes")          ; My Org and Markdown Notes
 
 ;; Settings for basic Doom Emacs things
-(setq projectile-project-search-path                     ; All the code related stuff that I work on
-      '( "~/Code/asm/"                                   ; All Assembly Projects
-         "~/Code/C/"                                     ; All C Projects
-         "~/Code/clisp/"                                 ; All Common Lisp Projects
-         "~/Code/cloj/"                                  ; All Clojure Projects
-         "~/Code/crystal/"                               ; All Crystal Projects
-         "~/Code/haskell/"                               ; All Haskell Projects
-         "~/Code/js/"                                    ; All Javascript Projects
-         "~/Code/misc/"                                  ; Misc. Projects such as snippets and small tests
-         "~/Code/php/"                                   ; All PHP Projects
-         "~/Code/ruby/"                                  ; All Ruby and Rails Projects
-         "~/Code/shell/"                                 ; All shell scripts
-         "~/Code/tex/"                                   ; All TeX/LaTeX Projects
-         "~/Code/_sites/" )                              ; All SSG Sites
+(setq projectile-project-search-path                     ; All Coding related Projects denoted by the $CODE evironment variable. Preferably a XDG directory suck as `$HOME/.local/code/`
+      '( "$CODE/asm/"                                    ; All Assembly Projects
+         "$CODE/C/"                                      ; All C Projects
+         "$CODE/clisp/"                                  ; All Common Lisp Projects
+         "$CODE/cloj/"                                   ; All Clojure Projects
+         "$CODE/crystal/"                                ; All Crystal Projects
+         "$CODE/haskell/"                                ; All Haskell Projects
+         "$CODE/js/"                                     ; All Javascript Projects
+         "$CODE/misc/"                                   ; Misc. Projects such as snippets and small tests
+         "$CODE/php/"                                    ; All PHP Projects
+         "$CODE/ruby/"                                   ; All Ruby and Rails Projects
+         "$CODE/shell/"                                  ; All shell scripts
+         "$CODE/tex/"                                    ; All TeX/LaTeX Projects
+         "$CODE/_sites/" )                               ; All SSG Sites
       projectile-sort-order 'recentf                     ; Sort projects by recently opened and worked on
       doom-font (font-spec                               ; Customizing Doom Emacs' Fonts
                  :family "ProggyCleanTTSZBP"             ; Proggy font, pretty universal for all screen types
@@ -40,19 +40,18 @@
 (setq ispell-program-name "aspell"
       ispell-dictionary "english")
 
-;; GNU TRAMP Config
+;; GNU TRAMP Configuration
 (setq tramp-default-method "ssh"                         ; Default to SSH, that's what I primarily use
       tramp-terminal-type "tramp"                        ; Let other terminal know what client I'm connecting with (might need to configure server)
-      tramp-auto-save-directory "~/.cache/tramp/"        ; Send Tramp info into XDG Cache directory on machine
+      tramp-auto-save-directory "$XDG_CACHE_HOME/tramp/" ; Send Tramp info into XDG Cache directory on machine
       tramp-chunksize 2000)                              ; Resonable Chunk size for speed and disk space in mind
 
 ;;; Activate Packages defined in packages.el
-(use-package! rtags)                                     ; Rtags support, for gcc and c projects mostly I believe
 (use-package doom-themes                                 ; Doom themes, so I can have my nice themes :)
   :config
   (setq doom-themes-enable-bold t                        ; if nil, bold is universally disabled
         doom-themes-enable-italic t)                     ; if nil, italics is universally disabled
-  (load-theme 'doom-spacegrey t)
+  (load-theme 'doom-outrun-electric t)
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
   (doom-themes-treemacs-config)
