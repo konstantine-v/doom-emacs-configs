@@ -21,10 +21,11 @@
         :desc "Switch buffer"             "b" #'switch-to-buffer
         :desc "Delete buffer"             "d" #'kill-this-buffer ; SPC-b-d makes more sense than SPC-b-d, but both are still there
         :desc "Recent files"              "r" #'recentf-open-files
-        :desc "Switch to home"             "h" #'+doom-dashboard/open)
-      (:prefix ("r" . "crystal")        ; Crystal Lang bindings
-        :desc "Crystal run"               "r" #'run-crystal
-        :desc "Crystal tool format"       "p" #'crystal-tool-format
-        :desc "Crystal run Spec All"      "P" #'crystal-spec-all)
-      (:prefix ("h h" . "Custom Docs")  ; Custom Org Docs for myself
-        :desc "Do What Document"          "w" #'find-file "~/.notes/org/what.org")) ; Reference doc for me to find info regarding my machiness' software
+        :desc "Switch to home"            "h" #'+doom-dashboard/open)) ; Reference doc for me to find info regarding my machiness' software
+
+;; Keybinds for Webpaste.el
+(map! :leader
+      (:prefix ("k" . "Webpaste")         ; Emacs Buffer Bindings
+        :desc "Paste Buffer"          "TAB" #'webpaste-paste-buffer
+        :desc "Paste Region"            "b" #'webpaste-paste-buffer
+        :desc "Paste Buffer or Region"  "d" #'webpaste-paste-buffer))
