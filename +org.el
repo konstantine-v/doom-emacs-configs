@@ -30,6 +30,16 @@
   (let ((org-agenda-files '("~/.local/notes/org/" "~/Documents/Personal/")))
     (call-interactively #'+calendar/open-calendar)))
 
+;; Org-Setting
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ditaa . t))) ;This line activates ditaa
+(setq org-ditaa-jar-path "/home/konstantine/.emacs.d/.local/straight/repos/org-mode/contrib/scripts/ditaa.jar")
+
+;; For PlantUML Stuff
+(setq plantuml-default-exec-mode `jar)
+(setq org-plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar")
+
 ;; Latex stuff
 (unless (boundp 'org-latex-classes)
   (setq org-latex-classes nil))
