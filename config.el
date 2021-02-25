@@ -3,12 +3,11 @@
 ;; sync' after modifying this file!
 
 ;; Load other config files such as keybindings
+(load! "custom.el")                                      ; Custom theme stuff
 (load! "+bindings.el")                                   ; Load my custom key bindings bindings
 (load! "+org.el")                                        ; Load my custom org settings
-(load! "+irc.el")                                        ; Load my irc settings for Circe settings
-(load! "+rss.el")                                        ; Load my RSS Feeds settings
-(load! "custom.el")                                      ; Custom theme stuff
-(load! "secret.el")                                      ; Secret stuff not to be commited
+;; (load! "+irc.el")                                        ; Load my irc settings for Circe settings
+;; (load! "+rss.el")                                        ; Load my RSS Feeds settings
 
 ;; These don't follow the typical file convention
 (projectile-add-known-project "~/.local/writings")       ; My LaTeX Writings
@@ -18,23 +17,21 @@
 (setq projectile-project-search-path                     ; All Coding related Projects denoted by the $CODE evironment variable. Preferably a XDG directory suck as `$HOME/.local/code/`
       '( "$CODE/asm/"                                    ; All Assembly Projects
          "$CODE/C/"                                      ; All C Projects
-         "$CODE/clisp/"                                  ; All Common Lisp Projects
-         "$CODE/cloj/"                                   ; All Clojure Projects
+         "$CODE/lisp/"                                   ; All Lisp-Related Projects
          "$CODE/crystal/"                                ; All Crystal Projects
-         "$CODE/haskell/"                                ; All Haskell Projects
-         "$CODE/js/"                                     ; All Javascript Projects
          "$CODE/misc/"                                   ; Misc. Projects such as snippets and small tests
          "$CODE/php/"                                    ; All PHP Projects
          "$CODE/ruby/"                                   ; All Ruby and Rails Projects
          "$CODE/shell/"                                  ; All shell scripts
-         "$CODE/tex/"                                    ; All TeX/LaTeX Projects
-         "$CODE/_sites/" )                               ; All SSG Sites
+         "$CODE/tex/")                                   ; All TeX/LaTeX Projects
       projectile-sort-order 'recentf                     ; Sort projects by recently opened and worked on
-      doom-font (font-spec                               ; Customizing Doom Emacs' Fonts
-                 :family "ProggyCleanTTSZBP"             ; Proggy font, pretty universal for all screen types
-                 :size 16)                               ; Font-Size
       display-line-numbers-type t                        ; I like seeing line numbers, what can I say?
       org-directory "~/.local/notes/org/")               ; Org Directory, in the .notes dir where I like all my notes
+
+;; Emacs fonts
+(setq doom-font (font-spec                               ; Customizing Doom Emacs' Fonts
+                 :family "Liberation Mono"               ; Linux Liberation Mono Font
+                 :size 18))                              ; Font-Size
 
 ;; Aspell/ispell stuff to fix errors for some
 (setq ispell-program-name "aspell"

@@ -15,32 +15,19 @@
               (("C-c n i" . org-roam-insert))
               (("C-c n I" . org-roam-insert-immediate))))
 
-;; Org Calendar Mode
-(defun my-open-calendar ()
-  (interactive)
-  (cfw:open-calendar-buffer
-   :contents-sources
-   (list
-    ;; (cfw:howm-create-source "Blue")  ; howm source
-    ;; (cfw:cal-create-source "Orange") ; ical sources
-    (cfw:org-create-source "Purple"))))  ; orgmode source
-;;;###autoload
-(defun cfw:open-org-calendar-with-cal1 ()
-  (interactive)
-  (let ((org-agenda-files '("~/.local/notes/org/" "~/Documents/Personal/")))
-    (call-interactively #'+calendar/open-calendar)))
-
-;; Org-Setting
+;; Path to Ditaa
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((ditaa . t))) ;This line activates ditaa
 (setq org-ditaa-jar-path "/home/konstantine/.emacs.d/.local/straight/repos/org-mode/contrib/scripts/ditaa.jar")
 
-;; For PlantUML Stuff
+;; PlantUML Stuff
 (setq plantuml-default-exec-mode `jar)
 (setq org-plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar")
 
-;; Latex stuff
+;; Latex Settings
+(setq TeX-engine 'xetex)
+
 (unless (boundp 'org-latex-classes)
   (setq org-latex-classes nil))
 
@@ -48,7 +35,6 @@
              '("article" "\\documentclass[9pt,a4paper]{article}
 \\usepackage[utf8]{inputenc}
 \\usepackage[T1]{fontenc}
-\\usepackage{fixltx2e}
 \\usepackage{graphicx}
 \\usepackage{longtable}
 \\usepackage{float}
