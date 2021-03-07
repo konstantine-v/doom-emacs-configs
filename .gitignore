@@ -2,9 +2,8 @@
 .idea
 *.log
 tmp/
+custom.el
 +gnus.el
 +rss.el
 +irc.el
-secret.el
-zola.el
-custom.el
++private.el
