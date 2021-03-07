@@ -1,8 +1,8 @@
 ;;; ~/.doom.d/+bindings.el -*- lexical-binding: t; -*-
 
 ;; Global Keys
-(global-set-key [f8] 'neotree-toggle)
-(global-set-key [f7] 'multi-term-dedicated-toggle)
+(global-set-key [f7] 'eshell) ; eshell is nice and soes what I need
+(global-set-key [f8] 'dired)  ; dired, works well with eshell, better than neotree
 
 ;; Leader key
 (map! :leader

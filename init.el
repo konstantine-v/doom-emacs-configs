@@ -76,8 +76,8 @@
        ;;ibuffer           ; interactive buffer management
 
        :term
-       term                ; basic terminal emulator for Emacs
-       ;;eshell            ; the elisp shell that works everywhere
+       eshell              ; the elisp shell that works everywhere
+       ;;term              ; basic terminal emulator for Emacs
        ;;shell             ; simple shell REPL for Emacs
        ;;vterm             ; the best terminal emulation in Emacs
 
@@ -97,12 +97,12 @@
        (lsp +peek)
        make                ; run make tasks from Emacs
        pdf                 ; pdf enhancements
+       gist                ; interacting with github gists
        ;;ansible
        ;;debugger          ; stepping through code, to help you add bugs
        ;;direnv
        ;;docker
        ;;ein               ; tame Jupyter notebooks with emacs
-       ;;gist              ; interacting with github gists
        ;;macos             ; MacOS-specific commands
        ;;pass              ; password manager for nerds
        ;;prodigy           ; managing external services & code builders
@@ -118,7 +118,7 @@
        ;;clojure           ; java with a lisp
        common-lisp         ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
-       crystal             ; ruby at the speed of c
+       ;;crystal           ; ruby at the speed of c
        ;;csharp            ; unity, .NET, and mono shenanigans
        data                ; config/data formats
        ;;(dart +flutter)   ; paint ui and not much else
@@ -159,8 +159,8 @@
         +pretty
         +present)          ; organize your plain life in plain text
        ;;perl              ; write code no one else can comprehend
-       (php +lsp)          ; perl's insecure younger brother
-       plantuml            ; diagrams for confusing people more
+       ;;(php +lsp)        ; perl's insecure younger brother
+       ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
        ;;python            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
@@ -185,9 +185,9 @@
        ;;(wanderlust +gmail)
 
        :app
-       ;; calendar
-       ;; rss              ; emacs as an RSS reader
-       ;; irc              ; how neckbeards socialize
+       ;;calendar
+       ;;rss               ; emacs as an RSS reader
+       ;;irc               ; how neckbeards socialize
        ;;twitter           ; twitter client https://twitter.com/vnought
 
        :config
